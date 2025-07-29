@@ -15,7 +15,6 @@ const db = mysql.createConnection({
 app.get('/notes', (req, res) => {
   db.query('SELECT * FROM notes', (err, results) => {
     if (err) {
-      console.error("Errore MySQL:", err); 
       return res.status(500).json({ error: err.message });
     }
     res.json(results);
@@ -33,7 +32,6 @@ app.post('/notes', (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log('Server avviato su http://localhost:3000');
 });
 
 app.put('/notes/:id', (req, res) => {
@@ -51,7 +49,6 @@ app.delete('/notes/:id', (req, res) => {
   const { id } = req.params;
   db.query('DELETE FROM notes WHERE id = ?', [id], (err, result) => {
     if (err) {
-      console.error("Errore eliminazione:", err);
       return res.status(500).json({ error: err.message });
     }
     res.sendStatus(204);

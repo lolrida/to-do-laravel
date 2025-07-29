@@ -13,7 +13,6 @@ app.get('/notes', async (req, res) => {
     const response = await axios.get(`${BACKEND_URL}/tasks`);
     res.json(response.data);
   } catch (error) {
-    console.error("Errore backend:", error.message);
     res.status(500).json({ error: error.message });
   }
 });
@@ -76,5 +75,4 @@ app.get('/notes/:listId', (req, res) => {
 
 
 app.listen(3000, () => {
-  console.log('Frontend disponibile su http://localhost:3000');
 });

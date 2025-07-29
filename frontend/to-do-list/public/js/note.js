@@ -21,7 +21,7 @@ async function loadLists() {
       loadNotes(currentListId);
     }
   } catch (error) {
-    console.error('Errore:', error);
+    alert('Errore nel caricamento delle liste');
   }
 }
 
@@ -62,7 +62,7 @@ async function loadNotes(listId) {
       notesList.appendChild(div);
     });
   } catch (error) {
-    console.error('Errore:', error);
+    alert('Errore nel caricamento delle note');
   }
 }
 
@@ -73,7 +73,7 @@ async function toggleTask(id) {
     });
     loadNotes(currentListId);
   } catch (error) {
-    console.error('Errore:', error);
+    alert('Errore nel cambio stato della nota');
   }
 }
 
@@ -93,7 +93,7 @@ async function deleteNote(taskId) {
     });
     loadNotes(currentListId);
   } catch (error) {
-    console.error('Errore:', error);
+    alert('Errore nell\'eliminazione della nota');
   }
 }
 
@@ -109,7 +109,7 @@ async function createNewList() {
     });
     loadLists();
   } catch (error) {
-    console.error('Errore:', error);
+    alert('Errore nella creazione della lista');
   }
 }
 
@@ -126,7 +126,7 @@ async function deleteCurrentList() {
     loadLists();
     document.getElementById('notesList').innerHTML = '';
   } catch (error) {
-    console.error('Errore:', error);
+    alert('Errore nell\'eliminazione della lista');
   }
 }
 
@@ -155,7 +155,7 @@ document.getElementById('addNoteForm').addEventListener('submit', async function
     document.getElementById('noteContent').value = '';
     loadNotes(currentListId);
   } catch (error) {
-    console.error('Errore:', error);
+    alert('Errore nella creazione della nota');
   }
 });
 
@@ -177,7 +177,7 @@ document.getElementById('editNoteForm').addEventListener('submit', async functio
     bootstrap.Modal.getInstance(document.getElementById('editNoteModal')).hide();
     loadNotes(currentListId);
   } catch (error) {
-    console.error('Errore:', error);
+    alert('Errore nella modifica della nota');
   }
 });
 

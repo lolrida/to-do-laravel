@@ -21,6 +21,6 @@ async function init() {
   conn.release();
 }
 
-init().catch(console.error);
+init();
 
 module.exports = pool;
